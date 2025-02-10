@@ -1,4 +1,4 @@
-v<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,7 +65,7 @@ v<!DOCTYPE html>
 <body>
     <div class="container">
         <div class="bear"><img src="https://media.discordapp.net/attachments/1284018968994254893/1338614085620858960/a61d0d188e2c25e58bce60fc2540f6f7.png?ex=67abb904&is=67aa6784&hm=0fe89419017b3798a98823d3760e70ef238f8e8a2423277c86dbdab3475f1612&=&format=webp&quality=lossless&width=354&height=472" alt="Bear"></div>
-        <div class="bubble" id="text">Deni, do you have any plans for Valentine’s?</div>
+        <div class="bubble" id="text">Hey, do you have any plans for Valentine’s?</div>
         <div class="buttons">
             <button class="yes" id="yesBtn" onclick="growYes()">Yes</button>
             <button class="no" id="noBtn" onclick="nextStep()">No</button>
@@ -75,7 +75,7 @@ v<!DOCTYPE html>
         let stage = 1;
         function nextStep() {
             if (stage === 1) {
-                document.getElementById('text').innerText = "Will you be my Valentine, Deni?";
+                document.getElementById('text').innerText = "Will you be my Valentine?";
                 document.querySelector('.buttons').innerHTML = '<button class="yes" id="yesBtn" onclick="finalYes()">Yes</button><button class="no" id="noBtn" onclick="growNo()">No</button>';
             }
             stage++;
