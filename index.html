@@ -107,6 +107,115 @@
         function finalYes() {
             document.getElementById('text').innerText = "Yay! Can't wait for our date, My love! ❤️";
             document.querySelector('.buttons').style.display = 'none';
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .bubble {
+            background: #333;
+            padding: 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 18px;
+            box-shadow: 2px 2px 10px rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+            position: relative;
+            animation: fadeIn 1s;
+            color: white;
+        }
+        .bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #333;
+        }
+        .buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .yes { background: pink; }
+        .no { background: lightgray; }
+        .bear img {
+            width: 150px;
+            filter: drop-shadow(0px 0px 10px rgba(255,255,255,0.5));
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bear"><img src="https://media.discordapp.net/attachments/1284018968994254893/1338614085620858960/a61d0d188e2c25e58bce60fc2540f6f7.png?ex=67abb904&is=67aa6784&hm=0fe89419017b3798a98823d3760e70ef238f8e8a2423277c86dbdab3475f1612&=&format=webp&quality=lossless&width=354&height=472" alt="Bear"></div>
+        <div class="bubble" id="text">Hey, do you have any plans for Valentine’s?</div>
+        <div class="buttons">
+            <button class="yes" id="yesBtn" onclick="growNo()">Yes</button>
+            <button class="no" id="noBtn" onclick="nextStep()">No</button>
+        </div>
+    </div>
+    <script>
+        let stage = 1;
+        
+        function nextStep() {
+            if (stage === 1) {
+                document.getElementById('text').innerText = "Will you be my Valentine?";
+                document.querySelector('.buttons').innerHTML = 
+                    '<button class="yes" id="yesBtn" onclick="finalYes()">Yes</button>' +
+                    '<button class="no" id="noBtn" onclick="growYes()">No</button>';
+            }
+            stage++;
+        }
+
+        function growNo() {
+            let noBtn = document.getElementById('noBtn');
+            let currentSize = parseInt(window.getComputedStyle(noBtn).fontSize);
+            noBtn.style.fontSize = (currentSize + 10) + 'px';
+            noBtn.style.padding = (currentSize + 5) + 'px';
+            if (currentSize > 100) {
+                noBtn.innerText = "You have to say yes!";
+            }
+        }
+
+        function growYes() {
+            let yesBtn = document.getElementById('yesBtn');
+            let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize + 10) + 'px';
+            yesBtn.style.padding = (currentSize + 5) + 'px';
+            if (currentSize > 100) {
+                yesBtn.innerText = "You have to say yes!";
+            }
+        }
+
+        function finalYes() {
+            document.getElementById('text').innerText = "Yay! Can't wait for our date, My love! ❤️";
+            document.querySelector('.buttons').style.display = 'none';
         }
     </script>
 </body>
