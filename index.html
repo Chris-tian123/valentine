@@ -67,8 +67,8 @@
         <div class="bear"><img src="https://media.discordapp.net/attachments/1284018968994254893/1338614085620858960/a61d0d188e2c25e58bce60fc2540f6f7.png?ex=67abb904&is=67aa6784&hm=0fe89419017b3798a98823d3760e70ef238f8e8a2423277c86dbdab3475f1612&=&format=webp&quality=lossless&width=354&height=472" alt="Bear"></div>
         <div class="bubble" id="text">Hey, do you have any plans for Valentine’s?</div>
         <div class="buttons">
-            <button class="yes" id="yesBtn" onclick="growYes()">Yes</button>
-            <button class="no" id="noBtn" onclick="nextStep()">No</button>
+            <button class="yes" id="yesBtn" onclick="nextStep()">Yes</button>
+            <button class="no" id="noBtn" onclick="growNo()">No</button>
         </div>
     </div>
     <script>
@@ -76,18 +76,9 @@
         function nextStep() {
             if (stage === 1) {
                 document.getElementById('text').innerText = "Will you be my Valentine?";
-                document.querySelector('.buttons').innerHTML = '<button class="yes" id="yesBtn" onclick="finalYes()">Yes</button><button class="no" id="noBtn" onclick="growNo()">No</button>';
+                document.querySelector('.buttons').innerHTML = '<button class="yes" id="yesBtn" onclick="growYes()">Yes</button><button class="no" id="noBtn" onclick="finalNo()">No</button>';
             }
             stage++;
-        }
-        function growYes() {
-            let yesBtn = document.getElementById('yesBtn');
-            let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
-            yesBtn.style.fontSize = (currentSize + 10) + 'px';
-            yesBtn.style.padding = (currentSize + 5) + 'px';
-            if (currentSize > 100) {
-                yesBtn.innerText = "You have to say yes!";
-            }
         }
         function growNo() {
             let noBtn = document.getElementById('noBtn');
@@ -98,8 +89,17 @@
                 noBtn.innerText = "You have to say yes!";
             }
         }
-        function finalYes() {
-            document.getElementById('text').innerText = "Yay! Can't wait for our date, My love! ❤️";
+        function growYes() {
+            let yesBtn = document.getElementById('yesBtn');
+            let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize + 10) + 'px';
+            yesBtn.style.padding = (currentSize + 5) + 'px';
+            if (currentSize > 100) {
+                yesBtn.innerText = "You have to say yes!";
+            }
+        }
+        function finalNo() {
+            document.getElementById('text').innerText = "Aww, I hope you change your mind!";
             document.querySelector('.buttons').style.display = 'none';
         }
     </script>
